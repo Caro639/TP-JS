@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/asset/style/style.css" />
+    <script defer src="/asset/script2.js"></script>
+    <title>Duel de sorciers</title>
+  </head>
+  <body>
+    <h1>&#129497; Duels de sorciers</h1>
+    <div class="container">
+      <form id="duelForm">
+        <div class="name-container">
+          <label for="name">Nom du sorcier 1:</label>
+          <input type="text" id="name1" name="name" required />
+
+          <label for="maison1">Maison du sorcier 1:</label>
+          <select id="maison1" name="maison1" required>
+            <option value="">Sélectionnez une famille</option>
+            <option value="Gryffondor">Gryffondor</option>
+            <option value="Serpentard">Serpentard</option>
+            <option value="Serdaigle">Serdaigle</option>
+            <option value="Poufsouffle">Poufsouffle</option>
+          </select>
+        </div>
+
+        <div class="name-container">
+          <label for="name">Nom du sorcier 2:</label>
+          <input type="text" id="name2" name="name" required />
+
+          <label for="maison2">Maison du sorcier 2:</label>
+          <select id="maison2" name="maison2" required>
+            <option value="">Sélectionnez une famille</option>
+            <option value="Gryffondor">Gryffondor</option>
+            <option value="Serpentard">Serpentard</option>
+            <option value="Serdaigle">Serdaigle</option>
+            <option value="Poufsouffle">Poufsouffle</option>
+          </select>
+        </div>
+
+        <div class="name-container">
+          <button type="submit" class="button">Lancer le duel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="duel-content"></div>
+  </body>
+</html>
