@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/asset/style/style.css" />
+    <script defer src="/asset/script.js"></script>
+    <title>Formulaire de profil</title>
+  </head>
+  <body>
+    <h1>Formulaire de profil</h1>
+    <div class="container">
+      <form id="profileForm">
+        <div class="name-container">
+          <label for="name">Nom:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="firstname">Prénom:</label>
+          <input type="text" id="firstname" name="firstname" required />
+        </div>
+
+        <div class="name-container">
+          <label for="age">Âge:</label>
+          <input type="number" id="age" name="age" min="0" required />
+
+          <label for="sexe">Sexe:</label>
+          <label><input type="radio" name="radio" value="Femme" /> Femme</label>
+          <label><input type="radio" name="radio" value="Homme" /> Homme</label>
+        </div>
+
+        <div class="name-container">
+          <label for="profession">Profession:</label>
+          <select id="profession" name="profession" required>
+            <option value="">Sélectionnez une profession</option>
+            <option value="Etudiant">Etudiant</option>
+            <option value="Développeur">Développeur</option>
+            <option value="Enseignant">Enseignant</option>
+            <option value="Designer">Designer</option>
+            <option value="Autre">Autre</option>
+          </select>
+
+          <label for="region">Région:</label>
+          <select id="region" name="region" required>
+            <option value="">Sélectionnez une région</option>
+            <option value="Île-de-France">Île-de-France</option>
+            <option value="Provence-Alpes-Côte d’Azur">
+              Provence-Alpes-Côte d’Azur
+            </option>
+            <option value="Bretagne">Bretagne</option>
+            <option value="Grand Est">Grand Est</option>
+            <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
+          </select>
+        </div>
+
+        <div class="name-container">
+          <label for="hobbies">Hobbies</label>
+          <input type="checkbox" id="hobby1" name="hobbies" value="Lecture" />
+          <label for="hobby1">Lecture</label>
+          <input type="checkbox" id="hobby2" name="hobbies" value="Sport" />
+          <label for="hobby2">Sport</label>
+          <input
+            type="checkbox"
+            id="hobby3"
+            name="hobbies"
+            value="Jeux videos"
+          />
+          <label for="hobby3">Jeux vidéos</label>
+          <input type="checkbox" id="hobby4" name="hobbies" value="Musique" />
+          <label for="hobby4">Musique</label>
+          <input type="checkbox" id="hobby5" name="hobbies" value="Voyage" />
+          <label for="hobby5">Voyage</label>
+        </div>
+
+        <label for="linkedin">Lien Linkedin:</label>
+        <input type="url" id="linkedin" name="linkedin" required />
+
+        <div class="name-container">
+          <button type="submit" class="button">Valider</button>
+        </div>
+      </form>
+    </div>
+    <div class="content"></div>
+  </body>
+</html>
