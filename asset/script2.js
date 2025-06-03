@@ -76,13 +76,6 @@ duel.addEventListener("submit", function (event) {
   while (PV2 > 0 && PV1 > 0) {
     tours++;
 
-    // console.log(tours);
-
-    // Attaque du sorcier 1
-    let attaque = Math.floor(Math.random() * 10) + 5; // Attaque du sorcier 1 entre 10 et 15
-
-    PV2 -= attaque;
-
     console.log(PV2);
 
     // Afficher les dégâts et les points de vie restants après l'attaque du sorcier 1
@@ -102,6 +95,12 @@ duel.addEventListener("submit", function (event) {
       );
       p2joker = false;
     }
+
+    // Attaque du sorcier 1
+    let attaque = Math.floor(Math.random() * 10) + 5; // Attaque du sorcier 1 entre 10 et 15
+
+    PV2 -= attaque;
+
     historique.insertAdjacentHTML(
       "beforeend",
       `<p>Duel ${tours} : ${sorcier1} attaque ${attaque} à ${sorcier2}. Il reste ${PV2} points de vie à ${sorcier2}.</p>`
@@ -123,11 +122,6 @@ duel.addEventListener("submit", function (event) {
 
     // Attaque du sorcier 2
     tours++;
-    // console.log(tours);
-
-    attaque = Math.floor(Math.random() * 10) + 5; // Nouvelle attaque pour le sorcier 2
-
-    PV1 -= attaque;
 
     console.log(PV1);
 
@@ -145,6 +139,10 @@ duel.addEventListener("submit", function (event) {
       );
       p1joker = false;
     }
+
+    attaque = Math.floor(Math.random() * 10) + 5;
+
+    PV1 -= attaque;
 
     historique.insertAdjacentHTML(
       "beforeend",
