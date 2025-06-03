@@ -68,25 +68,39 @@ duel.addEventListener("submit", function (event) {
   let PV1 = 200; // Vie du sorcier 1 à 200 points de vie
   let PV2 = 200; //vie du sorcier 2
   let tours = 0; // Compteur de tours
+  let p2joker = true; // joker sorcier 2 boolean utilise une seule fois
+  let p1joker = true; // joker sorcier 1
 
-  console.log(PV1, PV2);
   // degats = attaque
 
   while (PV2 > 0 && PV1 > 0) {
     tours++;
 
-    console.log(tours);
+    // console.log(tours);
 
     // Attaque du sorcier 1
     let attaque = Math.floor(Math.random() * 10) + 5; // Attaque du sorcier 1 entre 10 et 15
 
     PV2 -= attaque;
 
+    console.log(PV2);
+
     // Afficher les dégâts et les points de vie restants après l'attaque du sorcier 1
     let historique = document.querySelector(".historique");
 
+    // ne jamais afficher moins de 0 points de vie
     if (PV2 <= 0) {
       PV2 = 0;
+    }
+
+    // si le sorcier a moins de 50% de vie, il peut reprendre 200 PV
+    if (PV2 <= 100 && p2joker) {
+      PV2 = 200;
+      historique.insertAdjacentHTML(
+        "beforeend",
+        `<p class="joker">Le sorcier ${sorcier2} a repris 200 points de vie !</p>`
+      );
+      p2joker = false;
     }
     historique.insertAdjacentHTML(
       "beforeend",
@@ -99,7 +113,6 @@ duel.addEventListener("submit", function (event) {
 
     if (PV2 <= 0) {
       PV2 = 0;
-
       historique.insertAdjacentHTML(
         "beforeend",
         `<p>${sorcier2} a perdu en ${tours} duels !</p>`
@@ -110,16 +123,29 @@ duel.addEventListener("submit", function (event) {
 
     // Attaque du sorcier 2
     tours++;
-    console.log(tours);
+    // console.log(tours);
 
     attaque = Math.floor(Math.random() * 10) + 5; // Nouvelle attaque pour le sorcier 2
 
     PV1 -= attaque;
 
-    // Afficher les dégâts et les points de vie restants
+    console.log(PV1);
+
+    // bloquer à 0
     if (PV1 <= 0) {
       PV1 = 0;
     }
+
+    // si le sorcier a moins de 50% de vie, il peut reprendre 200 PV
+    if (PV1 <= 100 && p1joker) {
+      PV1 = 200;
+      historique.insertAdjacentHTML(
+        "beforeend",
+        `<p class="joker">Le sorcier ${sorcier1} a repris 200 points de vie !</p>`
+      );
+      p1joker = false;
+    }
+
     historique.insertAdjacentHTML(
       "beforeend",
       `<p>Duel ${tours} : ${sorcier2} attaque ${attaque} à ${sorcier1}. Il reste ${PV1} points de vie à ${sorcier1}</p>`
@@ -129,6 +155,7 @@ duel.addEventListener("submit", function (event) {
       `Duel : ${tours} Sorcier 2 attaque ${attaque}, PV restants: ${PV1}`
     );
 
+    // bloquer à 0 points de vie
     if (PV1 <= 0) {
       PV1 = 0;
 
@@ -142,6 +169,6 @@ duel.addEventListener("submit", function (event) {
   }
 });
 // faire une condition while pour gérer le duel tant que le sorcier n'a pas zéro de vie
-//une seule fois à 50% de vie le sorcier peut reprendre 200 PV
+//une seule fois à 50% de vie le sorcier peut reprendre 200 PV boolean variable joker
 // si c'est le cas afficher cette ligne en vert ajouter une classe
-// à la fin le sorcier ne peut pas avoir moins de 0 PV
+// à la fin le sorcier ne peut pas avoir moins de 0 PV affiché
