@@ -38,4 +38,16 @@ h1 {
 .duel-content {
   padding: 20px;
   background-color: aqua;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.historique {
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
 }
